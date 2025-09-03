@@ -1,0 +1,19 @@
+{
+    auto_https off
+}
+
+:443, :80 {
+    tls internal
+    encode zstd gzip
+    @frontend path_regexp ^/($|index|assets|src|charting_library|favicon)
+    handle @frontend {
+        reverse_proxy web:5173
+    }
+    handle_path /api/* {
+        uri strip_prefix /api
+        reverse_proxy backend:8000
+    }
+    handle {
+        reverse_proxy web:5173
+    }
+}

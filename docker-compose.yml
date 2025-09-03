@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    networks: [appnet]
+  web:
+    build: ./web
+    env_file:
+      - ./web/.env
+    ports:
+      - "5173:5173"
+    networks: [appnet]
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    environment:
+      - ACME_EMAIL=you@example.com
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+      - web
+    networks: [appnet]
+
+volumes:
+  caddy_data: {}
+  caddy_config: {}
+
+networks:
+  appnet:
+    driver: bridge

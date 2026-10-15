@@ -1,6 +1,6 @@
-# Private Trading Dashboard — TradingView-Style + Python FastAPI
+# Private Trading Dashboard — TradingView-Style AND Python FastAPI
 
-A production-ready starter to run a **private trading dashboard** with a **TradingView-like chart UI**
+A production-ready starter to run a **Private Trading dashboard** with a **TradingView-like chart UI**
 and a **Python trading engine** behind a secure API + WebSocket bridge.
 
 > **Heads-up on licensing:** This template includes an integration path for the **TradingView Charting Library** (TVCL),
@@ -19,6 +19,8 @@ and a **Python trading engine** behind a secure API + WebSocket bridge.
 - Private-only: locked behind auth; tokens stored in httpOnly cookies by default
 
 ## Quick Start (Dev, no Docker)
+
+follow these steps:
 
 ### Backend
 ```bash

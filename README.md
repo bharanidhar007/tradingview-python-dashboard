@@ -1,3 +1,5 @@
+#NOTE: Please do backtest, papertrade before using it for trading.
+
 # Private Trading Dashboard — TradingView-Style AND Python FastAPI
 
 A production-ready starter to run a **Private Trading dashboard** with a **TradingView-like chart UI**
